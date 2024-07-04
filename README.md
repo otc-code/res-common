@@ -4,14 +4,14 @@ The 'otc-code/res-common' module is designed to facilitate global tagging across
 Terraform. This module simplifies the process of applying consistent tags to resources, ensuring compliance with
 organizational standards and reducing manual errors.
 
-<!-- TOC -->
+<!-- BEGIN_TOC -->
 
 -   [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
 -   [Overview](#overview)
     -   [Usage](#usage)
     -   [Created Resources](#created-resources)
 
-<!-- /TOC -->
+<!-- END_TOC -->
 
 # Overview
 
@@ -151,8 +151,11 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+
 ## Checkov findings (none)
+
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
+
 <!-- END_CHECKOV -->
