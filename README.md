@@ -106,13 +106,56 @@ This module creates:
 # Automated docs
 
 <!-- BEGIN_TF_DOCS -->
+## terraform-docs
+### Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6 |
+
+### Providers
+
+No providers.
+
+### Modules
+
+No modules.
+
+### Resources
+
+No resources.
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_cloud_region"></a> [cloud\_region](#input\_cloud\_region) | Define the cloud region to use (AWS Region / Azure Location / GCP region) which tf should use. | `string` | n/a | yes |
+| <a name="input_config"></a> [config](#input\_config) | Global config Object which contains the mandatory information's for deploying resources to ensure tagging. | <pre>object({<br>    prefix       = string<br>    environment  = string<br>    application  = string<br>    productive   = optional(bool, false)<br>    customer     = optional(string, "")<br>    businessunit = optional(string, "")<br>    project      = optional(string, "")<br>    costcenter   = optional(string, "")<br>    owner        = optional(string, "")<br>  })</pre> | n/a | yes |
+| <a name="input_custom_name"></a> [custom\_name](#input\_custom\_name) | Set custom name for deployment. | `string` | `""` | no |
+| <a name="input_custom_tags"></a> [custom\_tags](#input\_custom\_tags) | A map of custom tags. | `map(string)` | `null` | no |
+| <a name="input_dcl"></a> [dcl](#input\_dcl) | Data classification to determine protection class (normal, high, very\_high) based on:<br>- Integrity: The information is reliable and cannot be manipulated.<br>- Confidentiality: Only authorized persons have access to the information.<br>- Availability: Information is available at the times requested.<br><br>Base coverage is not complete, but is a first step. Only when you have reached the next level of standard protection are all topics for the category of normal protection needs covered. | <pre>object({<br>    integrity       = optional(string, "normal")<br>    confidentiality = optional(string, "normal")<br>    availability    = optional(string, "normal")<br>  })</pre> | <pre>{<br>  "availability": "normal",<br>  "confidentiality": "normal",<br>  "integrity": "normal"<br>}</pre> | no |
+| <a name="input_version_info"></a> [version\_info](#input\_version\_info) | Version information from the callling module, used for tagging. | `string` | `"n/a"` | no |
+
+### Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_dcl"></a> [dcl](#output\_dcl) | The Data Classification class and the Level of the class. |
+| <a name="output_lc"></a> [lc](#output\_lc) | The Location Code based on the cloud region. |
+| <a name="output_locals"></a> [locals](#output\_locals) | Usefull locals for usage in other modules. |
+| <a name="output_name_prefix"></a> [name\_prefix](#output\_name\_prefix) | The name prefix. |
+| <a name="output_tags"></a> [tags](#output\_tags) | A Map of tags based on the input variables which can be referred from hcl. |
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_PIKE_DOCS -->
-
+## Permissions (Pike)
+```hcl
+```
 <!-- END_PIKE_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+## Checkov findings (none)
+> 🎉 CONGRATS! No findings found in Code.
 
+**Skipped checks**:
 <!-- END_CHECKOV -->

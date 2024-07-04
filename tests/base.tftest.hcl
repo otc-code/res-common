@@ -1,7 +1,7 @@
 run "full_variables" {
   variables {
     cloud_region = "europe-west3"
-    config       = {
+    config = {
       prefix       = "12345"
       environment  = "tst"
       application  = "1234567890123456"
