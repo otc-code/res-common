@@ -1,21 +1,27 @@
-name: OTC Test - AWS Login
+name: OpenTofu Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    paths:
+      - '**.tf'
+      - '**.tfvars'
+      - '.github/workflows/test.yml'
+# Ensures that only one deploy task run at a time.
+concurrency:
+  group: tofu
 
 permissions:
-  contents: read
-  id-token: write
+  # required for all workflows
+  contents: write
+  checks: write
+  pull-requests: write
+  discussions: write
+  statuses: write
+  id-token: write # This is required for requesting the JWT for oidc AUthentication
 
 jobs:
-  aws-login-test:
-    runs-on: Linux
-    environment: 'AWS-TST'
-    steps:
-      - name: AWS Login
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ secrets.TST_OIDC_AWS_ASSUME_ROLE_ARN }}
-          role-session-name: 'Testing'
-          aws-region: 'eu-central-1'
-
+  base:
+    name: Base Test
+    uses: otc-code/code-workflows/.github/workflows/tofu_test_aws.yml@main
+    secrets: inherit
