@@ -7,6 +7,7 @@ on:
       - '**.tf'
       - '**.tfvars'
       - '.github/workflows/test.yml'
+      
 # Ensures that only one deploy task run at a time.
 concurrency:
   group: tofu
