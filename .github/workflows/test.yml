@@ -11,6 +11,7 @@ on:
 # Ensures that only one deploy task run at a time.
 concurrency:
   group: tofu
+  
 permissions:
   # required for all workflows
   contents: write
