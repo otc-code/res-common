@@ -1,0 +1,21 @@
+name: OTC Test - AWS Login
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  aws-login-test:
+    runs-on: Linux
+    environment: 'AWS-TST'
+    steps:
+      - name: AWS Login
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.TST_OIDC_AWS_ASSUME_ROLE_ARN }}
+          role-session-name: 'Testing'
+          aws-region: 'eu-central-1'
+
