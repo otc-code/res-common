@@ -6,7 +6,7 @@ on:
     paths:
       - '**.tf'
       - '**.tfvars'
-      - - '**.tftest.hcl'
+      - '**.tftest.hcl'
       - '.github/workflows/test.yml'
 
 # Ensures that only one deploy task run at a time.
