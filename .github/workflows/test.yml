@@ -6,6 +6,7 @@ on:
     paths:
       - '**.tf'
       - '**.tfvars'
+      - - '**.tftest.hcl'
       - '.github/workflows/test.yml'
 
 # Ensures that only one deploy task run at a time.
@@ -30,4 +31,3 @@ jobs:
     with:
       EXAMPLES: "['10-simple','20-advanced','30-complex']"
       CLOUD_REGIONS: "['eu-central-1']"
-      
