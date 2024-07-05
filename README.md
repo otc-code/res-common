@@ -1,26 +1,29 @@
 # OpenTofu IaC Module for Global Tagging (otc-code/res-common)
 
+[![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
+
 The 'otc-code/res-common' module is designed to facilitate global tagging across various cloud environments using
 Terraform. This module simplifies the process of applying consistent tags to resources, ensuring compliance with
 organizational standards and reducing manual errors.
 
 <!-- BEGIN_TOC -->
+
 ## Table of Contents
 
-- [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
-- [Overview](#overview)
-  - [Usage](#usage)
-  - [Created Resources](#created-resources)
-- [Automated docs](#automated-docs)
-  - [terraform-docs](#terraform-docs)
-    - [Requirements](#requirements)
-    - [Providers](#providers)
-    - [Modules](#modules)
-    - [Resources](#resources)
-    - [Inputs](#inputs)
-    - [Outputs](#outputs)
-  - [Checkov findings (none)](#checkov-findings-none)
-<!-- END_TOC -->
+-   [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
+-   [Overview](#overview)
+    -   [Usage](#usage)
+    -   [Created Resources](#created-resources)
+-   [Automated docs](#automated-docs)
+    -   [terraform-docs](#terraform-docs)
+        -   [Requirements](#requirements)
+        -   [Providers](#providers)
+        -   [Modules](#modules)
+        -   [Resources](#resources)
+        -   [Inputs](#inputs)
+        -   [Outputs](#outputs)
+    -   [Checkov findings (none)](#checkov-findings-none)
+        <!-- END_TOC -->
 
 # Overview
 
@@ -160,8 +163,11 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+
 ## Checkov findings (none)
+
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
+
 <!-- END_CHECKOV -->
