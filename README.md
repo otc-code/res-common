@@ -6,11 +6,6 @@ organizational standards and reducing manual errors.
 
 <!-- BEGIN_TOC -->
 
--   [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
--   [Overview](#overview)
-    -   [Usage](#usage)
-    -   [Created Resources](#created-resources)
-
 <!-- END_TOC -->
 
 # Overview
@@ -151,8 +146,11 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+
 ## Checkov findings (none)
+
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
+
 <!-- END_CHECKOV -->

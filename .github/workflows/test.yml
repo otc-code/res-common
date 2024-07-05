@@ -11,7 +11,7 @@ on:
 # Ensures that only one deploy task run at a time.
 concurrency:
   group: tofu
-  
+
 permissions:
   # required for all workflows
   contents: write
@@ -21,6 +21,7 @@ permissions:
   statuses: write
   id-token: write # This is required for requesting the JWT for oidc AUthentication
 
+# Run Tests
 jobs:
   base:
     name: Base Test
