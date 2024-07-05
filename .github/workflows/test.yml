@@ -30,3 +30,4 @@ jobs:
     with:
       EXAMPLES: "['10-simple','20-advanced','30-complex']"
       CLOUD_REGIONS: "['eu-central-1']"
+      
