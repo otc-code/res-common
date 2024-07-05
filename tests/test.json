@@ -1,0 +1,15 @@
+-- Success
+{"@level":"info","@message":"OpenTofu 1.7.2","@module":"tofu.ui","@timestamp":"2024-07-05T07:09:09.792797+02:00","tofu":"1.7.2","type":"version","ui":"1.2"}
+{"@level":"info","@message":"Found 1 file and 1 run block","@module":"tofu.ui","@timestamp":"2024-07-05T07:09:09.796243+02:00","test_abstract":{"tests/base.tftest.hcl":["full_variables"]},"type":"test_abstract"}
+{"@level":"info","@message":"tests/base.tftest.hcl... pass","@module":"tofu.ui","@testfile":"tests/base.tftest.hcl","@timestamp":"2024-07-05T07:09:09.808398+02:00","test_file":{"path":"tests/base.tftest.hcl","status":"pass"},"type":"test_file"}
+{"@level":"info","@message":"  \"full_variables\"... pass","@module":"tofu.ui","@testfile":"tests/base.tftest.hcl","@testrun":"full_variables","@timestamp":"2024-07-05T07:09:09.808438+02:00","test_run":{"path":"tests/base.tftest.hcl","run":"full_variables","status":"pass"},"type":"test_run"}
+{"@level":"info","@message":"Success! 1 passed, 0 failed.","@module":"tofu.ui","@timestamp":"2024-07-05T07:09:09.815497+02:00","test_summary":{"status":"pass","passed":1,"failed":0,"errored":0,"skipped":0},"type":"test_summary"}
+
+
+-- Failure
+{"@level":"info","@message":"OpenTofu 1.7.2","@module":"tofu.ui","@timestamp":"2024-07-05T07:10:27.250694+02:00","tofu":"1.7.2","type":"version","ui":"1.2"}
+{"@level":"info","@message":"Found 1 file and 1 run block","@module":"tofu.ui","@timestamp":"2024-07-05T07:10:27.253410+02:00","test_abstract":{"tests/base.tftest.hcl":["full_variables"]},"type":"test_abstract"}
+{"@level":"info","@message":"tests/base.tftest.hcl... fail","@module":"tofu.ui","@testfile":"tests/base.tftest.hcl","@timestamp":"2024-07-05T07:10:27.266484+02:00","test_file":{"path":"tests/base.tftest.hcl","status":"fail"},"type":"test_file"}
+{"@level":"info","@message":"  \"full_variables\"... fail","@module":"tofu.ui","@testfile":"tests/base.tftest.hcl","@testrun":"full_variables","@timestamp":"2024-07-05T07:10:27.266522+02:00","test_run":{"path":"tests/base.tftest.hcl","run":"full_variables","status":"fail"},"type":"test_run"}
+{"@level":"error","@message":"Error: Test assertion failed","@module":"tofu.ui","@testfile":"tests/base.tftest.hcl","@testrun":"full_variables","@timestamp":"2024-07-05T07:10:27.266806+02:00","diagnostic":{"severity":"error","summary":"Test assertion failed","detail":"Incorrect name_prefix: 12345-euw3-tst-1234567890123456-1234567890123456","range":{"filename":"tests/base.tftest.hcl","start":{"line":33,"column":21,"byte":718},"end":{"line":33,"column":93,"byte":790}},"snippet":{"context":"run \"full_variables\"","code":"    condition     = output.name_prefix == \"12345_euw3-tst-1234567890123456-1234567890123456\"","start_line":33,"highlight_start_offset":20,"highlight_end_offset":92,"values":[{"traversal":"output.name_prefix","statement":"is \"12345-euw3-tst-1234567890123456-1234567890123456\""}]}},"type":"diagnostic"}
+{"@level":"info","@message":"Failure! 0 passed, 1 failed.","@module":"tofu.ui","@timestamp":"2024-07-05T07:10:27.274716+02:00","test_summary":{"status":"fail","passed":0,"failed":1,"errored":0,"skipped":0},"type":"test_summary"}
