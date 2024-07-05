@@ -30,7 +30,7 @@ run "full_variables" {
   }
 
   assert {
-    condition     = output.name_prefix == "12345_euw3-tst-1234567890123456-1234567890123456"
+    condition     = output.name_prefix == "12345-euw3-tst-1234567890123456-1234567890123456"
     error_message = "Incorrect name_prefix: ${output.name_prefix}"
   }
   assert {
