@@ -7,7 +7,39 @@
 <!-- END_TOC -->
 
 <!-- BEGIN_TF_DOCS -->
+## terraform-docs
+### Requirements
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.6 |
+
+### Providers
+
+No providers.
+
+### Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_common_full"></a> [common\_full](#module\_common\_full) | ../.. | n/a |
+
+### Resources
+
+No resources.
+
+### Inputs
+
+No inputs.
+
+### Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_dcl_class"></a> [dcl\_class](#output\_dcl\_class) | The Data Classification class and the Level of the class. |
+| <a name="output_lc"></a> [lc](#output\_lc) | The Location Code based on the cloud region. |
+| <a name="output_name_prefix"></a> [name\_prefix](#output\_name\_prefix) | The name prefix. |
+| <a name="output_tags"></a> [tags](#output\_tags) | A Map of tags based on the input variables which can be referred from hcl. |
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
