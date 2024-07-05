@@ -27,3 +27,6 @@ jobs:
     name: Base Test
     uses: otc-code/code-workflows/.github/workflows/tofu_test_aws.yml@main
     secrets: inherit
+    with:
+      EXAMPLES: "['10-simple','20-advanced','30-complex']"
+      CLOUD_REGIONS: "['eu-central-1']"
