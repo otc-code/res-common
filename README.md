@@ -5,7 +5,21 @@ Terraform. This module simplifies the process of applying consistent tags to res
 organizational standards and reducing manual errors.
 
 <!-- BEGIN_TOC -->
+## Table of Contents
 
+- [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
+- [Overview](#overview)
+  - [Usage](#usage)
+  - [Created Resources](#created-resources)
+- [Automated docs](#automated-docs)
+  - [terraform-docs](#terraform-docs)
+    - [Requirements](#requirements)
+    - [Providers](#providers)
+    - [Modules](#modules)
+    - [Resources](#resources)
+    - [Inputs](#inputs)
+    - [Outputs](#outputs)
+  - [Checkov findings (none)](#checkov-findings-none)
 <!-- END_TOC -->
 
 # Overview
