@@ -3,7 +3,19 @@
 # Automated docs
 
 <!-- BEGIN_TOC -->
+## Table of Contents
 
+- [20-advanced](#20-advanced)
+- [Automated docs](#automated-docs)
+  - [terraform-docs](#terraform-docs)
+    - [Requirements](#requirements)
+    - [Providers](#providers)
+    - [Modules](#modules)
+    - [Resources](#resources)
+    - [Inputs](#inputs)
+    - [Outputs](#outputs)
+  - [Checkov findings (none)](#checkov-findings-none)
+  - [Permissions (Pike)](#permissions-pike)
 <!-- END_TOC -->
 
 <!-- BEGIN_TF_DOCS -->
