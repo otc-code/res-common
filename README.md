@@ -5,10 +5,29 @@
 [![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
 
 <!-- BEGIN_TOC -->
-
 ## Table of Contents
 
-        <!-- END_TOC -->
+- [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
+- [Overview](#overview)
+  - [Usage](#usage)
+- [Details](#details)
+    - [Key Features:](#key-features)
+  - [Files](#files)
+    - [dcl.tf](#dcltf)
+    - [main.tf](#maintf)
+    - [outputs.tf](#outputstf)
+    - [versions.tf](#versionstf)
+- [Automated docs](#automated-docs)
+  - [terraform-docs](#terraform-docs)
+    - [Requirements](#requirements)
+    - [Providers](#providers)
+    - [Modules](#modules)
+    - [Resources](#resources)
+    - [Inputs](#inputs)
+    - [Outputs](#outputs)
+  - [Checkov findings (none)](#checkov-findings-none)
+  - [Permissions (Pike)](#permissions-pike)
+<!-- END_TOC -->
 
 # Overview
 
@@ -223,15 +242,14 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
-
 ## Checkov findings (none)
-
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
-
 <!-- END_CHECKOV -->
 
 <!-- BEGIN_PIKE_DOCS -->
-
+## Permissions (Pike)
+```hcl
+```
 <!-- END_PIKE_DOCS -->
