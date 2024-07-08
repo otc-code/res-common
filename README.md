@@ -1,5 +1,7 @@
 # OpenTofu IaC Module for Global Tagging (otc-code/res-common)
 
+![Logo](images/logo.png)
+
 [![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
 
 The 'otc-code/res-common' module is designed to facilitate global tagging across various cloud environments using
@@ -163,8 +165,11 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+
 ## Checkov findings (none)
+
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
+
 <!-- END_CHECKOV -->
