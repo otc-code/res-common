@@ -5,29 +5,30 @@
 [![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
 
 <!-- BEGIN_TOC -->
+
 ## Table of Contents
 
-- [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
-- [Overview](#overview)
-  - [Usage](#usage)
-- [Details](#details)
-    - [Key Features:](#key-features)
-  - [Files](#files)
-    - [dcl.tf](#dcltf)
-    - [main.tf](#maintf)
-    - [outputs.tf](#outputstf)
-    - [versions.tf](#versionstf)
-- [Automated docs](#automated-docs)
-  - [terraform-docs](#terraform-docs)
-    - [Requirements](#requirements)
-    - [Providers](#providers)
-    - [Modules](#modules)
-    - [Resources](#resources)
-    - [Inputs](#inputs)
-    - [Outputs](#outputs)
-  - [Checkov findings (none)](#checkov-findings-none)
-  - [Permissions (Pike)](#permissions-pike)
-<!-- END_TOC -->
+-   [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
+-   [Overview](#overview)
+    -   [Usage](#usage)
+-   [Details](#details)
+    -   [Key Features:](#key-features)
+    -   [Files](#files)
+        -   [dcl.tf](#dcltf)
+        -   [main.tf](#maintf)
+        -   [outputs.tf](#outputstf)
+        -   [versions.tf](#versionstf)
+-   [Automated docs](#automated-docs)
+    -   [terraform-docs](#terraform-docs)
+        -   [Requirements](#requirements)
+        -   [Providers](#providers)
+        -   [Modules](#modules)
+        -   [Resources](#resources)
+        -   [Inputs](#inputs)
+        -   [Outputs](#outputs)
+    -   [Checkov findings (none)](#checkov-findings-none)
+    -   [Permissions (Pike)](#permissions-pike)
+        <!-- END_TOC -->
 
 # Overview
 
@@ -79,7 +80,7 @@ The provided code  are related to defining tags for resources in an infrastructu
 3.  **Version Information**: The version information is included as part of the source tag to track changes or versions of the infrastructure code.
 4.  **Output**: The output provides a map of tags that can be referred to in HCL files for resource management and compliance.
 
-### Key Features:
+**Key Features**:
 
 -   **Tag Definitions**: Tags are defined based on data classification, determining protection class (normal, high, very_high).
 -   **Error Handling**: An error message is provided if the availability level is not one of the specified options (`normal`, `high`, `very_high`).
@@ -90,7 +91,45 @@ The provided code  are related to defining tags for resources in an infrastructu
 Structure:
 
 ```console
-
+├── examples
+│   ├── 10-simple
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── README.md
+│   │   ├── terraform.tfstate
+│   │   ├── terraform.tfstate.backup
+│   │   ├── variables.tf
+│   │   └── versions.tf
+│   ├── 20-advanced
+│   │   ├── main.tf
+│   │   ├── outputs.tf
+│   │   ├── README.md
+│   │   ├── terraform.tfstate
+│   │   ├── terraform.tfstate.backup
+│   │   ├── variables.tf
+│   │   └── versions.tf
+│   └── 30-complex
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── README.md
+│       ├── terraform.tfstate
+│       ├── terraform.tfstate.backup
+│       ├── variables.tf
+│       └── versions.tf
+├── images
+│   └── logo.png
+├── tests
+│   ├── base.tftest.hcl
+│   └── test.json
+├── dcl.tf
+├── LICENSE
+├── locals.json.tpl
+├── location_codes.json
+├── main.tf
+├── outputs.tf
+├── README.md
+├── variables.tf
+└── versions.tf
 ```
 
 ### dcl.tf
@@ -242,14 +281,21 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
+
 ## Checkov findings (none)
+
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
+
 <!-- END_CHECKOV -->
 
 <!-- BEGIN_PIKE_DOCS -->
+
 ## Permissions (Pike)
+
 ```hcl
+
 ```
+
 <!-- END_PIKE_DOCS -->
