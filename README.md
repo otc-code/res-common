@@ -4,33 +4,15 @@
 
 [![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
 
-The 'otc-code/res-common' module is designed to facilitate global tagging across various cloud environments using
-Terraform. This module simplifies the process of applying consistent tags to resources, ensuring compliance with
-organizational standards and reducing manual errors.
-
 <!-- BEGIN_TOC -->
 
 ## Table of Contents
 
--   [OpenTofu IaC Module for Global Tagging (otc-code/res-common)](#opentofu-iac-module-for-global-tagging-otc-coderes-common)
--   [Overview](#overview)
-    -   [Usage](#usage)
-    -   [Created Resources](#created-resources)
--   [Automated docs](#automated-docs)
-    -   [terraform-docs](#terraform-docs)
-        -   [Requirements](#requirements)
-        -   [Providers](#providers)
-        -   [Modules](#modules)
-        -   [Resources](#resources)
-        -   [Inputs](#inputs)
-        -   [Outputs](#outputs)
-    -   [Checkov findings (none)](#checkov-findings-none)
         <!-- END_TOC -->
 
 # Overview
 
-The common resource module provides Global Naming & Tags standards for all OTC tofu Modules. Naming will provide mainly
-a "name_prefix" which you can use for resource naming.
+The repository 'res-common' is an OpenTofu module designed for globally tagging and naming cloud resources. It ensures that all deployed resources are consistently tagged with mandatory information, such as environment, owner, and project details, which aids in resource management and compliance. This module is particularly useful in environments where consistent labeling across multiple projects or teams is crucial.
 
 The name prefix will be max. 48 characters long.
 
@@ -43,6 +25,13 @@ PPPPP-LLLL-EEE-AAAAAAAAAAAAAAAA-CCCCCCCCCCCCCCCC-
 ```
 
 ## Usage
+
+```hcl
+module "res-common" {
+  source = "git::https://github.com/otc-code/res-common.git?ref=<Version>"
+  ...
+}
+```
 
 The commons have defined map outputs which can be used within the modules to reference data from the commons module.
 
@@ -62,60 +51,129 @@ The minimum for invoking the module should be all mandatory variables:
 | custom_name         | Custom Name for the Resource deployment                                                 | ✗ (Name)            | len 16, a-z, A-Z, 0-9                                       |
 | custom_tags         | Add custom tags from map to the tags                                                    | ✗ (Tag)             | Map of custom tags                                          |
 
-To utilize this module effectively, follow these steps in your Terraform configuration files:
+# Details
 
-1.  **Module Source**: Ensure you specify the correct version of the module using a Git reference. Replace `<Version>`
-    with the actual version tag or branch name from the repository.
+The provided code  are related to defining tags for resources in an infrastructure as code (IaC) setup. Here's a concise overview of the key features from `res-common`:
 
-    ```hcl
-    module "res-common" {
-      source = "git::https://github.com/otc-code/res-common.git?ref=<Version>"
+1.  **Base Coverage**: Tags are defined with base coverage, which means they provide a basic level of protection but may not cover all aspects required for higher levels of standard protection.
+2.  **Custom Tags**: Custom tags can be merged with global tags to ensure comprehensive labeling.
+3.  **Version Information**: The version information is included as part of the source tag to track changes or versions of the infrastructure code.
+4.  **Output**: The output provides a map of tags that can be referred to in HCL files for resource management and compliance.
 
-      # Define your variables here as per the documentation below
-      config = {
-        prefix       = "your_prefix"
-        environment  = "dev"
-        application  = "exampleApp"
-        productive   = false
-        customer     = "customerName"
-        businessunit = "businessUnit"
-        project      = "projectCode"
-        costcenter   = "costCenterNumber"
-        owner        = "ownerEmail@domain.com"
-      }
+### Key Features:
 
-      custom_tags = {
-        "customTagKey1" = "customTagValue1"
-        "customTagKey2" = "customTagValue2"
-      }
+-   **Tag Definitions**: Tags are defined based on data classification, determining protection class (normal, high, very_high).
+-   **Error Handling**: An error message is provided if the availability level is not one of the specified options (`normal`, `high`, `very_high`).
+-   **Description and Usage**: The tags are used to label resources in an IaC setup, ensuring compliance and management through standardized labels.
 
-      cloud_region = "us-east-1"  # Example region, replace with your actual region
-    }
-    ```
+## Files
 
-2.  **Configuration Variables**: The module accepts a configuration object (`config`) which includes mandatory fields
-    such as `prefix`, `environment`, and `application`. Optional parameters like `productive`, `customer`, etc., are also
-    available for flexibility. Additionally, you can pass custom tags via the `custom_tags` variable to further customize
-    resource tagging.
+Structure:
 
-3.  **Outputs**: The module provides several outputs that can be used in downstream modules or for debugging purposes:
-    -   `locals`: A map of useful local variables derived from input configurations.
-    -   `tags`: Merged tags based on the input variables.
-    -   `version_tag`: Semantic versioning tag for the module.
-    -   `lc`: Location code specific to the provided cloud region.
+```console
 
-By following this guide, you can easily integrate global tagging into your Terraform projects using the '
-otc-code/res-common' module, ensuring consistency and compliance across all environments.
+```
 
-## Created Resources
+### dcl.tf
 
-This module creates:
+The file `dcl.tf` is a Terraform configuration script that defines the data classification levels and their associated properties within an infrastructure-as-code (IaC) environment. This script uses local values to manage different aspects of data classification, such as integrity, confidentiality, and availability levels, which are crucial for ensuring compliance with organizational security policies and regulatory requirements.
 
--   **Tags**: Automatically applies predefined tags based on configuration parameters such as environment, application,
-    and more.
--   **Name Prefix**: Compute a name prefix to simplify naming accross ressources & cloud providers.
--   **Location Code**: Based on the cloud region provided in the configuration file, it will return the appropriate
-    location code for that cloud provider.
+Here's a breakdown of the key components in `dcl.tf`:
+
+1.  **Integrity Levels**: Defines the numerical representation (1, 2, 3) for different integrity levels (`normal`, `high`, `very_high`). These levels are used to assess the trustworthiness and reliability of data.
+
+2.  **Confidentiality Levels**: Similar to integrity, this section defines the confidentiality levels (`normal`, `high`, `very_high`) with their corresponding numerical values. Confidentiality ensures that sensitive information is protected from unauthorized access.
+
+3.  **Availability Levels**: Defines how available data should be based on predefined levels (`normal`, `high`, `very_high`). High availability means ensuring that the system remains operational even in the face of failures or disruptions.
+
+4.  **Data Classification Classes**: Maps numerical values to descriptive class names for easy understanding and reference. For example, a level 1 might correspond to "basic," level 2 to "standard," and level 3 to "highest."
+
+5.  **Level Calculation**: Determines the overall classification level by taking the maximum value among integrity, confidentiality, and availability levels specified in variables (`var.dcl.integrity`, `var.dcl.confidentiality`, `var.dcl.availability`). This ensures that the most restrictive classification is used to govern access controls and data handling practices.
+
+The script uses these definitions to provide a structured way of managing and enforcing security policies across various components of the infrastructure, making it easier to apply consistent security measures regardless of changes or additions to the system architecture.
+
+### main.tf
+
+The file `main.tf` is a Terraform configuration script that defines the infrastructure and settings for a deployment. It uses various Terraform features such as locals, variables, and outputs to manage resources efficiently. Here's a breakdown of its purpose:
+
+1.  **Local Variables**:
+
+    -   `location_code`: Decodes the content of `location_codes.json` into a map for easy access.
+    -   `locals`: Uses a template file (`locals.json.tpl`) to dynamically generate local variables based on other variables and predefined values. This includes:
+        -   `s`: A separator string.
+        -   `location_code`: The code corresponding to the cloud region specified by `var.cloud_region`.
+        -   `custom_name`, `prefix`, `environment`, `application`, `productive`, `customer`, `businessunit`, `project`, `costcenter`, `owner`: Variables that can be set externally or use default values.
+    -   Additional local variables like `dcl_class` are not shown in the provided snippet but would typically be used for further customization within the template file.
+
+2.  **Tags**:
+
+    -   A map of custom tags (`custom_tags`) is merged with predefined global tags and additional metadata (e.g., source version information). This helps in resource management and tagging across different cloud providers or environments.
+
+3.  **Outputs**:
+
+    -   An output named `locals` provides a useful set of local variables that can be reused in other modules, enhancing code reuse and maintainability.
+
+4.  **Variables**:
+    -   `custom_name`: A string variable that allows setting a custom name for the deployment. It has a default value but can be overridden.
+
+This script is crucial for maintaining consistency across different deployments by centralizing configuration settings in one place, making it easier to manage and update as needed.
+
+### outputs.tf
+
+The purpose of the file `outputs.tf` is to define outputs that can be used by other parts of the infrastructure as code (IaC) configuration, such as Terraform files or other modules. Here's a breakdown of what each output does based on the provided content:
+
+1.  **Output "tags"**:
+
+-   Purpose: This output provides a map of tags that are based on input variables. These tags can be referred to in HCL (HashiCorp Configuration Language) files for resource management and organization.
+
+2.  **Output "lc"**:
+
+-   Purpose: This output returns the location code associated with the specified cloud region. The `local.location_code` map is used to fetch the appropriate code based on the value of `var.cloud_region`.
+
+3.  **Output "name_prefix"**:
+
+-   Purpose: This output provides the name prefix, which is a local variable stored in `local.locals`. It can be used to ensure consistency in naming conventions across different resources.
+
+4.  **Output "dcl"**:
+
+-   Purpose: This output returns an object containing the data classification class and level. The `local.dcl_class` map is indexed by `local.level` to fetch the appropriate class and level information.
+
+5.  **Output "locals"**:
+
+-   Purpose: This output provides a map of useful local variables that can be used within other modules or configurations, enhancing reusability and maintainability of the infrastructure code.
+
+    variables.tf:  The provided Terraform code snippet defines a set of variables and their configurations within a Terraform module. These variables are designed to provide global configuration settings and custom tags for resources being deployed. Below is an explanation of each part of the code:
+
+1.  **Config Object**:
+
+    -   This section defines a variable named `config` which is an object containing various fields such as `prefix`, `environment`, `application`, `productive`, `customer`, `businessunit`, `project`, `costcenter`, and `owner`.
+    -   The `validation` blocks ensure that certain conditions are met for each field:
+        -   `environment` must be up to 3 characters long and contain only letters and numbers.
+        -   `prefix` can be up to 5 characters long and contain only letters and numbers (or be empty).
+        -   `application` must be up to 15 characters long and contain only letters, hyphens (`-`), and numbers.
+    -   This object is used to provide mandatory information for resource deployment, ensuring proper tagging and categorization of resources.
+
+2.  **Data Classification Levels (DCL)**:
+
+    -   The `dcl` variable defines an object with three fields: `integrity`, `confidentiality`, and `availability`.
+    -   Each field is optional and defaults to "normal" if not provided.
+    -   Validation rules ensure that these fields can only be set to specific values ("normal", "high", or "very_high").
+    -   This variable is used to determine the protection class of resources based on their data classification.
+
+3.  **Custom Variables**:
+
+    -   `custom_tags` is a map variable where keys and values are both strings. It defaults to null but can be provided with custom tags.
+    -   `custom_name` is a string variable that defaults to an empty string. This allows for setting a custom name for the deployment, subject to validation rules ensuring it does not exceed 16 characters and contains only letters, hyphens (`-`), or numbers.
+    -   `version_info` is a string variable that defaults to "n/a" and provides version information from the calling module, used for tagging purposes.
+
+    The purpose of this Terraform code snippet is to provide a structured way to define global configurations and custom tags for resources in a consistent manner across different deployments or environments. This ensures proper resource management, compliance with organizational standards, and efficient deployment processes.
+
+### versions.tf
+
+The `versions.tf` file is used to specify the required versions of Terraform and its providers. This ensures that the Terraform code adheres to a specific version, which helps maintain consistency and compatibility across different environments. Here's what each part does:
+
+-   `required_version = ">= 1.6"`: Specifies that the Terraform CLI must be at least version 1.6 or higher to execute this configuration. This ensures that all team members are using compatible versions of Terraform for consistency and stability.
+-   `required_providers {}`: Reserved for specifying which providers (e.g., AWS, Azure) are required by the Terraform modules used in the project. Since there are no provider blocks specified here, it implies that this configuration does not yet depend on any external cloud providers or services.
 
 # Automated docs
 
@@ -173,3 +231,7 @@ No resources.
 **Skipped checks**:
 
 <!-- END_CHECKOV -->
+
+<!-- BEGIN_PIKE_DOCS -->
+
+<!-- END_PIKE_DOCS -->
