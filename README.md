@@ -1,6 +1,6 @@
 # OpenTofu IaC Module for Global Tagging (otc-code/res-common)
 
-![Logo](images/logo.png)
+[![LOGO](images/logo.png)](#)
 
 [![OpenTofu Tests](https://github.com/otc-code/res-common/actions/workflows/test.yml/badge.svg)](https://github.com/otc-code/res-common/actions/workflows/test.yml)
 
