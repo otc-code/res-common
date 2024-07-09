@@ -275,21 +275,14 @@ No resources.
 <!-- END_TF_DOCS -->
 
 <!-- BEGIN_CHECKOV -->
-
 ## Checkov findings (none)
-
 > 🎉 CONGRATS! No findings found in Code.
 
 **Skipped checks**:
-
 <!-- END_CHECKOV -->
 
 <!-- BEGIN_PIKE_DOCS -->
-
 ## Permissions (Pike)
-
 ```hcl
-
 ```
-
 <!-- END_PIKE_DOCS -->
