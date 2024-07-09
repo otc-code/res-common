@@ -96,24 +96,18 @@ Structure:
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   ├── README.md
-│   │   ├── terraform.tfstate
-│   │   ├── terraform.tfstate.backup
 │   │   ├── variables.tf
 │   │   └── versions.tf
 │   ├── 20-advanced
 │   │   ├── main.tf
 │   │   ├── outputs.tf
 │   │   ├── README.md
-│   │   ├── terraform.tfstate
-│   │   ├── terraform.tfstate.backup
 │   │   ├── variables.tf
 │   │   └── versions.tf
 │   └── 30-complex
 │       ├── main.tf
 │       ├── outputs.tf
 │       ├── README.md
-│       ├── terraform.tfstate
-│       ├── terraform.tfstate.backup
 │       ├── variables.tf
 │       └── versions.tf
 ├── images
