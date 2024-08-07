@@ -1,5 +1,5 @@
 {
   "azurerm_resource_group.this.name": "${common.name_prefix}-rg",
-  "azurerm_storage_account.this.name": "${common.locals.prefix}${common.lc}${common.locals.environment}${substr(md5(common.name_prefix),0,10)}st",
+  "azurerm_storage_account.this.name": "${common.locals.prefix}${common.lc}${common.locals.environment}${substr(sha1(common.name_prefix),0,10)}st",
   "azurerm_storage_account.this.tag.name": "${common.name_prefix}-sta"
 }
