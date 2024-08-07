@@ -6,7 +6,9 @@ on:
     paths:
       - '**.tf'
       - '**.tfvars'
+      - '**.tftest.hcl'
       - '.github/workflows/test.yml'
+
 # Ensures that only one deploy task run at a time.
 concurrency:
   group: tofu
@@ -20,8 +22,12 @@ permissions:
   statuses: write
   id-token: write # This is required for requesting the JWT for oidc AUthentication
 
+# Run Tests
 jobs:
   base:
     name: Base Test
     uses: otc-code/code-workflows/.github/workflows/tofu_test_aws.yml@main
     secrets: inherit
+    with:
+      EXAMPLES: "['10-simple','20-advanced','30-complex']"
+      CLOUD_REGIONS: "['eu-central-1']"

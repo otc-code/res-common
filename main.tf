@@ -1,3 +1,4 @@
+# Local for other modules
 locals {
   location_code = jsondecode(file("${path.module}/location_codes.json"))
   locals = jsondecode(templatefile("${path.module}/locals.json.tpl", {
@@ -17,4 +18,3 @@ locals {
   }))
   tags = merge(var.custom_tags, local.locals.global_tags, { "OPS:Source" : var.version_info })
 }
-
