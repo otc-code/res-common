@@ -22,6 +22,6 @@ output "dcl" {
 }
 
 output "locals" {
-  value       = local.localse
+  value       = local.locals
   description = "Usefull locals for usage in other modules."
 }

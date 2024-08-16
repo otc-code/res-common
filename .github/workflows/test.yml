@@ -3,11 +3,15 @@ on:
   workflow_dispatch:
   pull_request:
   push:
+    branches:
+      - '**/*'
+      - '!v*' # Don't run on release branches.
     paths:
       - '**.tf'
       - '**.tfvars'
       - '**.tftest.hcl'
       - '.github/workflows/test.yml'
+      - '!version.json' # Needed as this file is modifed by release workflow!
 
 # Ensures that only one deploy task run at a time.
 concurrency:
