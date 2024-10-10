@@ -1,6 +1,6 @@
 # Load the commons module
 module "common" {
-  source       = "git::https://github.com/otc-code/res-common.git?ref=main"
+  source       = "../.."
   cloud_region = "eu-central-1"
   config = {
     prefix      = "otcrs"
