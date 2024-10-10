@@ -21,7 +21,7 @@ variable "cloud_region" {
       "uaenorth", "uksouth", "us-east-1",
       "us-east-2", "us-west-1", "us-west-2",
       "westeurope", "westus", "westus2",
-      "westus3", "europe-west3", "datacenter","datacenter1", "datacenter2","datacenter3", "datacenter4","datatcenter5"
+      "westus3", "europe-west3", "datacenter", "datacenter1", "datacenter2", "datacenter3", "datacenter4", "datatcenter5"
     ], lower(var.cloud_region))
     error_message = "Valid values for cloud_region: af-south-1, ap-east-1, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-southeast-1, ap-southeast-2, australiaeast, ca-central-1, canadacentral, centralindia, centralus, eastasia, eastus, eu-central-1, eastus2, eu-north-1, eu-south-1, eu-west-1, eu-west-2, eu-west-3, francecentral, germanywestcentral, japaneast, jioindiawest, koreacentral, me-south-1, northcentralus, northeurope, norwayeast, s-east-1, southafricanorth, southcentralus, southeastasia, swedencentral, switzerlandnorth, uaenorth, uksouth, us-east-1, us-east-2, us-west-1, us-west-2, westeurope, westus, westus2, westus3, europe-west3, datacener, datacenter1, datacenter2, datacenter3, datacenter4, datatcenter5."
   }
